@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+
+const tmi = require("tmi.js");
+
+const client = new tmi.Client({
+  connection: { reconnect: true },
+  channels: ["lucecarter"]     
+});
+
+client.connect();
+
+const App = () => {
+  client.on("message", (channel, tags, message, self) => {
+    // "Alca: Hello, World!"
+    console.log(tags);
+    if(tags["mod"] === true 
+    || tags["subscriber"] === 1
+    || tags["badges"]["founder"] === 1
+    || tags["badges"]["vip"] === "1") {
+        console.log(`🧡${tags["display-name"]}: ${message}`);
+    }
+
+    console.log(`${tags["display-name"]}: ${message}`);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Battleground Bot!</h1>
+      <img src="emote_sword.png" alt="Sword Logo" />
     </div>
   );
-}
+};
 
 export default App;
+

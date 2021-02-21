@@ -6,7 +6,8 @@ The aim of this file is to provide a place to log what was learned each stream. 
 
 ### 20th Feb 2021
 1. With React, you have an index page that references a default App component. This is where you can add not only code but also a render section that allows you to add to the front end as well.
-2. With tmi.js, you can create a client without the identity property object, this makes it anonymous which is easier for not needing to faff with oauth etc but means you can only be read-only.
+2. With tmi.js, you can create a client without the identity property object, this makes it anonymous which is easier for not needing to faff with oauth etc but means you can only be read-only
+3. When you do create-react-app, it has a public folder as well as src. You want to put resources in the public folder for the front-end like images
 
 ### 21st Feb 2021
 1. You can create a functional component in react by just doing export default function <name>(props){}

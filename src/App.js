@@ -18,11 +18,11 @@ const App = () => {
   // and it will currently get overwritten by any new message that comes in
 
   // HELP RECEIVED FROM WhiteP4nth3r - 21st February 2020 🥳
-  const [chatMessage, setChatMessage] = useState('')
+  const [chatMessages, setChatMessages] = useState([]);
 
   client.on("message", (channel, tags, message, self) => {
     // we set it here regardless of any badges or anything
-    setChatMessage(`${tags["display-name"]}: ${message}`);
+    setChatMessages([...chatMessages, `${tags["display-name"]}: ${message}`]);
 
     if (tags["badges"] != null) {
       if (
@@ -31,8 +31,8 @@ const App = () => {
         tags["badges"]["founder"] === 1 ||
         tags["badges"]["vip"] === "1"
       ) {
-        // and then here, we can do stuff if we find the badges
-        setChatMessage(`🧡${tags["display-name"]}: ${message}`);
+        // and then here, we can do stuff if we find the badges     
+        setChatMessages([...chatMessages, `🧡${tags["display-name"]}: ${message}`]);
       }
     }
   });
@@ -40,7 +40,7 @@ const App = () => {
   return (
     <div>
       <h1>Battleground Bot!</h1>
-      <Message chatMessage={chatMessage} />
+      <Message chatMessages={chatMessages} />
     </div>
   );
 };

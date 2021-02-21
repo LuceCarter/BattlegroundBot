@@ -1,8 +1,9 @@
 export default function Message(props) {
-    const { chatMessage } = props;
-
+    const { chatMessages } = props;
     return (
-       <h3>{chatMessage}</h3>
+        chatMessages.map(message => {
+            return <h3>{message}</h3>
+        })
    );
 };
 

@@ -18,4 +18,10 @@ The aim of this file is to provide a place to log what was learned each stream. 
 6. You call the component by writing it as a tag in the html section, using attributes to pass in that state 
 
 ### 24th Feb 2021
-1. 
+1. CSS width's work on the parent, not the browser
+2. CSS is hard
+3. I think the app is getting a memory leak hence the crashing
+
+#### 27th Feb 2021
+1. Handling the new message event while also updating state caused the crash
+2. WhiteP4nth3r helped fixed it and left comments in App.js

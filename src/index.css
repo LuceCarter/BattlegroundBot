@@ -7,7 +7,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.Message {  
+  color: #ffa03a;
+  width: 100%; 
+  margin: 0 0 .5rem 0;
+  padding-right: .25rem;           
+}
+
+.MessageContainer  {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #0f2745;
+  width:50%;
+  padding-left: 2.5rem;    
+}
+
+.MessageContainer.VIP {
+  padding-left: 1rem;
 }

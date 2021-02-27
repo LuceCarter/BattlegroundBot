@@ -16,7 +16,12 @@ function formatMessage(chatMessageEvent) {
           <img src='emote_heart.png' height='25' width='25' alt="emote heart"/>
         </span>
       )}
-      <h3 className="Message">@{chatMessageEvent.tags['username']} {chatMessageEvent.message}</h3>
+        <span>
+          <h3 className="Message Username">{chatMessageEvent.tags['username']}:</h3>
+        </span>
+        <span>
+          <h3 className="Message">{chatMessageEvent.message}</h3>
+        </span>
     </div>
   )
 }

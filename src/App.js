@@ -19,9 +19,7 @@ const App = () => {
   // HELP RECEIVED FROM WhiteP4nth3r - 21st February 2021 🥳
   const [chatMessages, setChatMessages] = useState([]);
 
-  client.on("message", (channel, tags, message, self) => {
-    // we set it here regardless of any badges or anything
-    setChatMessages([...chatMessages, `${tags["display-name"]}: ${message}`]);
+  client.on("message", (channel, tags, message, self) => {    
 
     if (tags["badges"] != null) {
       if (
@@ -30,15 +28,24 @@ const App = () => {
         tags["badges"]["founder"] === 1 ||
         tags["badges"]["vip"] === "1"
       ) {
+        console.log('I am a VIP message');
         // and then here, we can do stuff if we find the badges     
-        setChatMessages([...chatMessages, `🧡${tags["display-name"]}: ${message}`]);
+        setChatMessages([...chatMessages, {chatMessage: `${tags["display-name"]}: ${message}`, isVIP: true}]);
       }
+      else {
+        console.log('I am a badge holder but not a VIP');
+        setChatMessages([...chatMessages, {chatMessage: `${tags["display-name"]}: ${message}`, isVIP: false}]);
+      }
+    } 
+    else {
+      console.log('I have no badges');
+      // we set it here regardless of any badges or anything
+    setChatMessages([...chatMessages, {chatMessage: `${tags["display-name"]}: ${message}`, isVIP: false}]);
     }
   });
 
   return (
     <div>
-      <h1>Battleground Bot!</h1>
       <Message chatMessages={chatMessages} />
     </div>
   );

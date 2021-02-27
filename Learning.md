@@ -16,3 +16,6 @@ The aim of this file is to provide a place to log what was learned each stream. 
 4. useState is how you keep it functional. You can have a variable to hold the state and then a function to update that state. For example const [chatMessages, setChatMessages] = useState([]); which creates an empty array state for chatMessages and a function to update that array called setChatMessages
 5. You then call that set function in the code whenever you want to update the value
 6. You call the component by writing it as a tag in the html section, using attributes to pass in that state 
+
+### 24th Feb 2021
+1. 
